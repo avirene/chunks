@@ -1,0 +1,17 @@
+<h1>New Entry</h1>
+
+<%= form_with scope: :entry, url: entries_path, local: true do |form| %>
+  <p>
+    <%= form.label :word %><br>
+    <%= form.text_field :word %>
+  </p>
+ 
+  <p>
+    <%= form.label :definition %><br>
+    <%= form.text_area :definition %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

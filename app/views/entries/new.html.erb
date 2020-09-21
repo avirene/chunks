@@ -10,8 +10,15 @@
     <%= form.label :definition %><br>
     <%= form.text_area :definition %>
   </p>
+
+  <p>
+  <%= form.label :example %><br>
+  <%= form.text_area :example %>
+</p>
  
   <p>
     <%= form.submit %>
   </p>
 <% end %>
+
+<%= link_to "Back", entries_path %>

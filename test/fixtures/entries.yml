@@ -3,7 +3,9 @@
 one:
   word: MyString
   definition: MyText
+  example: MyText
 
 two:
   word: MyString
   definition: MyText
+  example: MyText

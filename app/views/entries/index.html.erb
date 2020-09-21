@@ -1,0 +1,21 @@
+<h1>Your entries</h1>
+
+<%= link_to "New entry", new_entry_path %>
+
+<table>
+  <tr>
+    <th>Word</th>
+    <th>Definition</>
+    <th>Example</>
+    <th></th>
+  </tr>
+
+  <% @entries.each do |entry| %>
+    <tr>
+      <td><%= entry.word %></td>
+      <td><%= entry.definition %></td>
+      <td><%= entry.example %></td>
+      <td><%= link_to 'Show', entry_path(entry) %></td>
+    </tr>
+  <% end %>
+</table>

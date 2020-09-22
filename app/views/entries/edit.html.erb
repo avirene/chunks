@@ -1,40 +1,5 @@
 <h1>Edit Entry</h1>
 
-<%= form_with(model: @entry, local: true) do |form| %>
- 
-  <% if @entry.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@entry.errors.count, "error") %> prohibited this entry from being saved:
-      </h2>
-      <ul>
-        <% @entry.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
- 
-  <p>
-    <%= form.label :word %><br>
-    <%= form.text_field :word %>
-  </p>
- 
-  <p>
-    <%= form.label :definition %><br>
-    <%= form.text_area :definition %>
-  </p>
-
-  <p>
-    <%= form.label :example %><br>
-    <%= form.text_area :example %>
-  </p>
- 
-  <p>
-    <%= form.submit %>
-  </p>
- 
-<% end %>
+<%= render "form" %>
  
 <%= link_to 'Back', entries_path %>
-

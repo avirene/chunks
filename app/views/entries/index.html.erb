@@ -18,12 +18,8 @@
       <td><%= link_to "Show", entry_path(entry) %></td>
       <td><%= link_to "Edit", edit_entry_path(entry) %></td>
       <td><%= link_to "Destroy", entry_path(entry), method: :delete, data: { confirm: "Are you sure?" } %></td>
-      </tr>
+    </tr>
   <% end %>
 </table>
 
-<button onclick="practiceWords()">Practice words</button>
-<button onclick="practiceChunks()">Practice chunks</button>
-
-<script type="text/javascript" src="src/word.js"></script>
-<script type="text/javascript" src="src/chunk.js"></script>
+<%= link_to "Practice Words", entry_path(@entries.sample) %>

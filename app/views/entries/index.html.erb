@@ -22,14 +22,14 @@
   <% end %>
 </table>
 
-<input type="button" onclick="practiceWords('<%= @entries.sample.definition %>')">Practice Words</input>
+<button type="input" onclick="practiceWords('<%= @entries.sample.definition %>')">Practice Words</button>
 <script>
 function practiceWords(entry){
   alert (entry);
 }
 </script>
 
-<input type="button" onclick="practiceChunks('<%= @entries.sample.example %>')">Practice Chunks</input>
+<button type="input" onclick="practiceChunks('<%= @entries.sample.example %>')">Practice Chunks</button>
 <script>
 function practiceChunks(entry){
   alert (entry);

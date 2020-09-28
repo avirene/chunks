@@ -20,11 +20,18 @@
       <td><%= link_to "Destroy", entry_path(entry), method: :delete, data: { confirm: "Are you sure?" } %></td>
     </tr>
   <% end %>
-
 </table>
+
 <input type="button" onclick="practiceWords('<%= @entries.sample.definition %>')">Practice Words</input>
 <script>
 function practiceWords(entry){
+  alert (entry);
+}
+</script>
+
+<input type="button" onclick="practiceChunks('<%= @entries.sample.example %>')">Practice Chunks</input>
+<script>
+function practiceChunks(entry){
   alert (entry);
 }
 </script>

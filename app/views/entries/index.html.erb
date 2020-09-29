@@ -22,17 +22,20 @@
   <% end %>
 </table>
 
-<button onclick="practiceWords('<%= @entries.sample.definition %>')">Practice Words</button>
+<button id="practiceWordsButton" onclick="practiceWords('<%= @entries.sample.definition %>')">Practice Words</button>
 
 <script>
 function practiceWords(definition){
-  prompt (definition, "Please type in the word");
+  var word = prompt(definition, "Please type in the word");
+  if (word != null) {
+    document.getElementById("practiceWordsButton").innerHTML = "The word " + word + " is correct.";
+  }
 }
 </script>
 
 <button type="input" onclick="practiceChunks('<%= @entries.sample.example %>')">Practice Chunks</button>
 <script>
 function practiceChunks(example){
-  prompt (example, "Please type in the missing chunk");
+  prompt(example, "Please type in the missing chunk");
 }
 </script>

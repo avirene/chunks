@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :entries, only [:index, :show, :create, :update, :destroy]
+      resources :entries, only: [:index, :show, :create, :update, :destroy]
     end
   end  
 end

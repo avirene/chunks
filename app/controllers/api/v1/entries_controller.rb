@@ -1,6 +1,7 @@
 class Api::V1::EntriesController < ApplicationController
   before_action :set_todo_item, only: [:show, :edit, :update, :destroy]
   def index
+    @entries = Entry.all
   end
   def show
   end

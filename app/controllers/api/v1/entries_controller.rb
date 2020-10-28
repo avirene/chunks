@@ -20,6 +20,17 @@ class Api::V1::EntriesController < ApplicationController
     end  
   end
   def update
+    if authorized?
+      respond_to do |format|
+        if @entry.update(entry_params)
+          format.json { render :show, status: :ok, location: api_v1_entry_path(@entry) }
+        else
+          format.json { render json: entry.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+      handle_unauthorised
+    end  
   end
   def destroy
   end

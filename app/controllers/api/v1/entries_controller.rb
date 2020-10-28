@@ -33,7 +33,16 @@ class Api::V1::EntriesController < ApplicationController
     end  
   end
   def destroy
+    if authorized?
+      @entry.destroy
+      respond_to do |format|
+        format.json { head :no_content }
+      end
+    else
+      handle_unauthorized
+    end
   end
+  
   private
     def set_entry
       @entry = Entry.find(params[:id])

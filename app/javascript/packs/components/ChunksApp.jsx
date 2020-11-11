@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import axios from "axios";
 import Entries from "./Entries";
 import Entry from "./Entry";
-import EntryForm from "./EntryForm";
+// import EntryForm from "./EntryForm"
 
 class ChunksApp extends React.Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class ChunksApp extends React.Component {
       entries: []
     };
     this.getEntries = this.getEntries.bind(this);
-    this.createEntry = this.createEntry.bind(this);
+    // this.createEntry = this.createEntry.bind(this);
   }
   componentDidMount() {
     this.getEntries();
@@ -29,21 +29,21 @@ class ChunksApp extends React.Component {
     });
   }
 
-  createEntry(entry) {
-    const entries = [entry, ...this.state.entries];
-    this.setState({ entries });
-  }
+  // createEntry(entry) {
+  //   const entries = [entry, ...this.state.entries];
+  //   this.setState({ entries });
+  // }
   
   render() {
     return (
-      <>
-      <EntryForm createEntry={this.createEntry} />
+      // <>
+      // <EntryForm createEntry={this.createEntry} />
       <Entries>
         {this.state.entries.map(entry => (
           <Entry key={entry.id} entry={entry} />
         ))}
       </Entries>
-      </>
+      // </>
     );
   }
 }

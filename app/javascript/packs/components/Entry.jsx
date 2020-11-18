@@ -28,7 +28,7 @@ class Entry extends React.Component {
   render() {
     const { entry } = this.props
     return (
-      <tr className={`${this.word}`}>
+      <tr className={`${this.word}`} className={`${this.definition}`}>
         <td>
           <input
             type="text"

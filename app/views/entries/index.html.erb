@@ -21,13 +21,23 @@
     </tr>
   <% end %>
 </table>
-<button onclick="getElementById('practiceButton').innerHTML='chunks-app'">Practice</button>
+<style>
+span {
+  visibility: hidden;
+}
+</style>
+<span id="chunks-app"> </span>
+<button onclick="myFunction()">Practice</button>
 <p id="practiceButton"></p>
-# <script>
-# function myFunction() {
-#   document.getElementById("practiceButton").innerHTML = "chunks-app";
-# }
-# </script>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("chunks-app").innerHTML;
+  document.getElementById("practiceButton").innerHTML = x;
+}
+</script>
+
+
 # <button id="practiceWordsButton" onclick="practiceWords('<%= @entries.sample.definition %>')">Practice Words</button>
 
 # <script>

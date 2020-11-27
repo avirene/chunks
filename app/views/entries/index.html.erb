@@ -21,33 +21,17 @@
     </tr>
   <% end %>
 </table>
-<style>
-span {
-  visibility: hidden;
-}
-</style>
-<span id="chunks-app"> </span>
-<button onclick="myFunction()">Practice</button>
-<p id="practiceButton"></p>
+
+<button id="practiceWordsButton" onclick="practiceWords('<%= @entries.sample.definition %>')">Practice Words</button>
 
 <script>
-function myFunction() {
-  var x = document.getElementById("chunks-app").innerHTML;
-  document.getElementById("practiceButton").innerHTML = x;
+function practiceWords(definition){
+  var word = prompt(definition, "Please type in the word");
+  if (word != null) {
+    document.getElementById("practiceWordsButton").innerHTML = "The word " + word + " is correct.";
+  }
 }
 </script>
-
-
-# <button id="practiceWordsButton" onclick="practiceWords('<%= @entries.sample.definition %>')">Practice Words</button>
-
-# <script>
-# function practiceWords(definition){
-#   var word = prompt(definition, "Please type in the word");
-#   if (word != null) {
-#     document.getElementById("practiceWordsButton").innerHTML = "The word " + word + " is correct.";
-#   }
-# }
-# </script>
 
 <button type="input" onclick="practiceChunks('<%= @entries.sample.example %>')">Practice Chunks</button>
 <script>

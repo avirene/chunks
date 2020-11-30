@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     root "entries#index", as: :authenticated_root
   end
   get 'welcome/index'
+  get ""
 
   resources :entries
 

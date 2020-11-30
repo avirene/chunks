@@ -42,6 +42,10 @@ class EntriesController < ApplicationController
     redirect_to entries_path
   end
 
+  def practice_words
+    render "practice_words"
+  end
+
   private
     def entry_params
       params.require(:entry).permit(:word, :definition, :example)

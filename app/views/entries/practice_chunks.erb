@@ -1,0 +1,15 @@
+<style>
+span {
+  visibility: hidden;
+}
+</style>
+<span id="chunks-app"> </span>
+<button onclick="myFunction()">Practice</button>
+<p id="practiceButton"></p>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("chunks-app").innerHTML;
+  document.getElementById("practiceButton").innerHTML = x;
+}
+</script>

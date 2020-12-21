@@ -9,12 +9,12 @@ Rails.application.routes.draw do
 
   # root 'welcome#index'
 
-  root "entries#practice_words"
-  get 'entries/practice_words'
+  root 'entries#practice_words'
+  get '/practice_words', to: "entries#practice_words"
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :entries, only: [:index, :show, :create, :update, :destroy]
     end
   end
-  get "entries/practice_words"
+  get '/practice_words', to: "entries#practice_words"
 end

@@ -46,6 +46,10 @@ class EntriesController < ApplicationController
     render "practice_words"
   end
 
+  def practice_chunks
+    render "practice_chunks"
+  end
+
   private
     def entry_params
       params.require(:entry).permit(:word, :definition, :example)

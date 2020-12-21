@@ -16,5 +16,5 @@ Rails.application.routes.draw do
       resources :entries, only: [:index, :show, :create, :update, :destroy]
     end
   end
-  get '/practice_words', to: "entries#practice_words"
+  
 end

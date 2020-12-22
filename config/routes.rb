@@ -16,5 +16,13 @@ Rails.application.routes.draw do
       resources :entries, only: [:index, :show, :create, :update, :destroy]
     end
   end
+
+  root 'entries#practice_chunks'
+  get '/practice_chunks', to: "entries#practice_chunks"
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :entries, only: [:index, :show, :create, :update, :destroy]
+    end
+  end
   
 end

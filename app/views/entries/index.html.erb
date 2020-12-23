@@ -22,16 +22,18 @@
   <% end %>
 </table>
 
-<button id="practiceWordsButton" onclick="practiceWords('<%= @entries.sample.definition %>')">Practice Words</button>
+<p> <%= link_to "Practice words", practice_words_path(@entries) %></p>
 
-<script>
-function practiceWords(definition){
-  var word = prompt(definition, "Please type in the word");
-  if (word != null) {
-    document.getElementById("practiceWordsButton").innerHTML = "The word " + word + " is correct.";
-  }
-}
-</script>
+# <button id="practiceWordsButton" onclick="practiceWords('<%= @entries.sample.definition %>')">Practice Words</button>
+
+# <script>
+# function practiceWords(definition){
+#   var word = prompt(definition, "Please type in the word");
+#   if (word != null) {
+#     document.getElementById("practiceWordsButton").innerHTML = "The word " + word + " is correct.";
+#   }
+# }
+# </script>
 
 <button type="input" onclick="practiceChunks('<%= @entries.sample.example %>')">Practice Chunks</button>
 <script>

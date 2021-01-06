@@ -39,9 +39,12 @@ class ChunksApp extends React.Component {
       // <>
       // <EntryForm createEntry={this.createEntry} />
       <Entries>
-        {this.state.entries.map(entry => (
+        {this.state.entries[Math.random(entry => (
           <Entry key={entry.id} entry={entry} />
-        ))}
+        )) * this.state.entries.length]
+        /* {this.state.entries.map(entry => (
+          <Entry key={entry.id} entry={entry} />
+        ))} */}
       </Entries>
       // </>
     );

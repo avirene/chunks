@@ -45,7 +45,7 @@ class ChunksApp extends React.Component {
    var random = Math.floor(Math.random() * this.state.entries.length);
     return (
       <Entries>
-                 <Entry key={this.state.entries[random].word} entry={this.state.entries[random]} />
+                 <Entry key={this.state.entries[random].id} entry={this.state.entries[random]} />
      </Entries>
     );
       // </>

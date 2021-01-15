@@ -8,6 +8,7 @@ class Entry extends React.Component {
   constructor(props) {
     super(props);
     this.word
+    this.definition
     this.handleDestroy = this.handleDestroy.bind(this);
     this.path = `/api/v1/entries/${this.props.entry.id}`;
   }

@@ -48,7 +48,6 @@ class ChunksApp extends React.Component {
                  <Entry key={this.state.entries[random].id} entry={this.state.entries[random]} />
      </Entries>
     );
-      // </>
   }
 }
 

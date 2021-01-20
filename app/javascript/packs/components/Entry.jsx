@@ -9,10 +9,10 @@ class Entry extends React.Component {
     super(props);
     this.word;
     this.definition;
-    this.handleDestroy = this.handleDestroy.bind(this);
+    this.handleDestroy = this.handleSubmit.bind(this);
     this.path = `/api/v1/entries/${this.props.entry.id}`;
   }
-  handleDestroy() {
+  handleSubmit() {
     setAxiosHeaders();
     const confirmation = confirm("Are you sure?");
     if (confirmation) {
@@ -45,10 +45,10 @@ class Entry extends React.Component {
             id={`entry__definition-${entry.id}`}
           />
         </td>
-        <button onClick={this.handleDestroy}
+        <button onClick={this.handleSubmit}
         className="btn btn-outline-danger"
         >
-          Delete
+          Submit
         </button>
       </tr>
     )

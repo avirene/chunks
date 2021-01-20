@@ -33,9 +33,9 @@ class Entry extends React.Component {
         <td>
           <input
             type="text"
-            defaultValue={entry.word}
+            defaultValue={entry.definition}
             className="form-control"
-            id={`entry__word-${entry.id}`}
+            id={`entry__definition-${entry.id}`}
           />
         </td>
         <button onClick={this.handleDestroy}

@@ -33,6 +33,13 @@ class Entry extends React.Component {
         <td>
           <input
             type="text"
+            className="form-control"
+            id={`entry__word-${entry.id}`}
+        />
+        </td>
+        <td>
+          <textarea
+            type="text"
             defaultValue={entry.definition}
             className="form-control"
             id={`entry__definition-${entry.id}`}

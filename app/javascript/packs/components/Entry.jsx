@@ -9,7 +9,7 @@ class Entry extends React.Component {
     super(props);
     this.word;
     this.definition;
-    this.handleDestroy = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.path = `/api/v1/entries/${this.props.entry.id}`;
   }
   handleSubmit() {
@@ -17,9 +17,9 @@ class Entry extends React.Component {
     const confirmation = confirm("Are you sure?");
     if (confirmation) {
       axios
-      .delete(this.path)
+      .fetch(this.path)
       .then(response => {
-        this.props.getEntries();
+        this.props.checkWord();
       })
       .catch(error => {
         console.log(error);

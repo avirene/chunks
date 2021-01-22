@@ -9,22 +9,26 @@ class Entry extends React.Component {
     super(props);
     this.word;
     this.definition;
+    this.wordRef = React.createRef()
     this.handleSubmit = this.handleSubmit.bind(this);
     this.path = `/api/v1/entries/${this.props.entry.id}`;
   }
-  handleSubmit() {
-    setAxiosHeaders();
-    const confirmation = confirm("Are you sure?");
-    if (confirmation) {
+  handleSubmit(e) {
+    e.preventDefault()
       axios
-      .fetch(this.path)
+      .fetch(this.path, {
+        entry: {
+        word: this.wordRef.current.value,
+        },
+      })
       .then(response => {
-        this.props.checkWord();
+        const word = response.data
+        this.props.checkWord(word);
       })
       .catch(error => {
         console.log(error);
       });
-    }
+    e.target.reset()
   }
   render() {
     const { entry } = this.props
@@ -33,8 +37,11 @@ class Entry extends React.Component {
         <td>
           <input
             type="text"
+            name="word"
+            ref={this.wordRef}
+            required
             className="form-control"
-            id={`entry__word-${entry.id}`}
+            id="word"
         />
         </td>
         <td>
@@ -45,8 +52,8 @@ class Entry extends React.Component {
             id={`entry__definition-${entry.id}`}
           />
         </td>
-        <button onClick={this.handleSubmit}
-        className="btn btn-outline-danger"
+        <button onSubmit={this.handleSubmit}
+        className="btn btn-primary"
         >
           Submit
         </button>
@@ -59,5 +66,6 @@ export default Entry
 
 Entry.propTypes = {
   Entry: PropTypes.object.isRequired,
-  getEntries: PropTypes.func.isRequired
+  getEntries: PropTypes.func.isRequired,
+  checkWord: PropTypes.func.isRequired,
 };

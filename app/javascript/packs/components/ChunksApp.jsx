@@ -12,7 +12,7 @@ class ChunksApp extends React.Component {
       entries: []
     };
     this.getEntries = this.getEntries.bind(this);
-    // this.createEntry = this.createEntry.bind(this);
+    this.checkWord = this.checkWord.bind(this);
   }
   componentDidMount() {
     this.getEntries();
@@ -29,10 +29,11 @@ class ChunksApp extends React.Component {
     });
   }
 
-  // createEntry(entry) {
-  //   const entries = [entry, ...this.state.entries];
-  //   this.setState({ entries });
-  // }
+  checkWord(inputWord) {
+    const word = this.state.entry.word
+    this.setState({ word });
+
+  }
   
   render() {
      if (this.state.entries.length == 0) {

@@ -34,8 +34,9 @@ class ChunksApp extends React.Component {
     this.setState({ word });
     if (inputWord == word) {
       return alert("Well done");
+    } else {
+      confirm("Are you sure?");
     }
-
   }
   
   render() {

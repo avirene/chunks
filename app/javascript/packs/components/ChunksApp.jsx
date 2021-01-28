@@ -32,10 +32,12 @@ class ChunksApp extends React.Component {
   checkWord(inputWord) {
     const word = this.state.entry.word
     this.setState({ word });
+    const alert = alert("Well done!");
+    const confirmation = confirm("Are you sure?");
     if (inputWord == word) {
-      return alert("Well done");
+      return alert;
     } else {
-      return confirm("Are you sure?");
+      return confirmation;
     }
   }
   

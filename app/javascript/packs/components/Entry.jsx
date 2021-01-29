@@ -22,8 +22,8 @@ class Entry extends React.Component {
         },
       })
       .then(response => {
-        const word = response.data
-        this.props.checkWord(word);
+        const inputWord = response.data
+        this.props.checkWord(inputWord);
       })
       .catch(error => {
         console.log(error);

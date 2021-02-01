@@ -16,7 +16,7 @@ class Entry extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
       axios
-      .fetch(this.path, {
+      .post(this.path, {
         entry: {
         word: this.wordRef.current.value,
         },
@@ -41,7 +41,8 @@ class Entry extends React.Component {
             ref={this.wordRef}
             required
             className="form-control"
-            id="word"
+            id="inputWord"
+            placeholder="Write the word here..."
         />
         </td>
         <td>

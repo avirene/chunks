@@ -35,7 +35,7 @@ class Entry extends React.Component {
     return (
       <tr className={`${this.word}`} className={`${this.definition}`}>
         <td>
-          <input
+            <input
             type="text"
             name="word"
             ref={this.wordRef}

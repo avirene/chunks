@@ -10,20 +10,22 @@ class Entry extends React.Component {
     this.word;
     this.definition;
     this.wordRef = React.createRef()
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleChange.bind(this);
     this.path = `/api/v1/entries/${this.props.entry.id}`;
   }
-  handleSubmit(e) {
-    e.preventDefault()
+  handleChange() {
+    this.checkWord();
+  }
+    checkWord() {
       axios
-      .post(this.path, {
+      .put(this.path, {
         entry: {
         word: this.wordRef.current.value,
         },
       })
       .then(response => {
-        const inputWord = response.data
-        this.props.checkWord(inputWord);
+        // const inputWord = response.data
+        // this.props.checkWord(inputWord);
       })
       .catch(error => {
         console.log(error);
@@ -37,7 +39,8 @@ class Entry extends React.Component {
         <td>
             <input
             type="text"
-            name="word"
+            name="inputWord"
+            onChange={this.handleChange}
             ref={this.wordRef}
             required
             className="form-control"

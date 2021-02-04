@@ -13,19 +13,17 @@ class Entry extends React.Component {
     this.handleSubmit = this.handleChange.bind(this);
     this.path = `/api/v1/entries/${this.props.entry.id}`;
   }
-  handleChange() {
-    this.checkWord();
-  }
-    checkWord() {
+  handleSubmit(e) {
+    e.preventDefault();
       axios
-      .put(this.path, {
+      .post(this.path, {
         entry: {
         word: this.wordRef.current.value,
         },
       })
       .then(response => {
-        // const inputWord = response.data
-        // this.props.checkWord(inputWord);
+        const inputWord = response.data
+        this.props.checkWord(inputWord);
       })
       .catch(error => {
         console.log(error);
@@ -35,33 +33,60 @@ class Entry extends React.Component {
   render() {
     const { entry } = this.props
     return (
-      <tr className={`${this.word}`} className={`${this.definition}`}>
-        <td>
+      <form onSubmit={this.handleSubmit} className="my-3">
+        <div className="form-row">
+          <div className="form-group col-md-8">
             <input
             type="text"
             name="inputWord"
-            onChange={this.handleChange}
             ref={this.wordRef}
             required
             className="form-control"
             id="inputWord"
             placeholder="Write the word here..."
-        />
-        </td>
-        <td>
+            />
+          </div>
+          <div className="form-group col-md-8">
           <textarea
             type="text"
             defaultValue={entry.definition}
             className="form-control"
             id={`entry__definition-${entry.id}`}
           />
-        </td>
-        <button onSubmit={this.handleSubmit}
-        className="btn btn-primary"
-        >
-          Submit
-        </button>
-      </tr>
+          </div>
+          <div className="form-group col-md-4">
+            <button className="btn btn-primary">
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+      // <tr className={`${this.word}`} className={`${this.definition}`}>
+      //   <td>
+      //       <input
+      //       type="text"
+      //       name="inputWord"
+      //       ref={this.wordRef}
+      //       required
+      //       className="form-control"
+      //       id="inputWord"
+      //       placeholder="Write the word here..."
+      //   />
+      //   </td>
+      //   <td>
+      //     <textarea
+      //       type="text"
+      //       defaultValue={entry.definition}
+      //       className="form-control"
+      //       id={`entry__definition-${entry.id}`}
+      //     />
+      //   </td>
+      //   <button onSubmit={this.handleSubmit}
+      //   className="btn btn-primary"
+      //   >
+      //     Submit
+      //   </button>
+      // </tr>
     )
   }
 }

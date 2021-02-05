@@ -10,7 +10,7 @@ class Entry extends React.Component {
     this.word;
     this.definition;
     this.wordRef = React.createRef()
-    this.handleSubmit = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.path = `/api/v1/entries/${this.props.entry.id}`;
   }
   handleSubmit(e) {
@@ -33,36 +33,9 @@ class Entry extends React.Component {
   render() {
     const { entry } = this.props
     return (
-      <form onSubmit={this.handleSubmit} className="my-3">
-        <div className="form-row">
-          <div className="form-group col-md-8">
-            <input
-            type="text"
-            name="inputWord"
-            ref={this.wordRef}
-            required
-            className="form-control"
-            id="inputWord"
-            placeholder="Write the word here..."
-            />
-          </div>
-          <div className="form-group col-md-8">
-          <textarea
-            type="text"
-            defaultValue={entry.definition}
-            className="form-control"
-            id={`entry__definition-${entry.id}`}
-          />
-          </div>
-          <div className="form-group col-md-4">
-            <button className="btn btn-primary">
-              Submit
-            </button>
-          </div>
-        </div>
-      </form>
-      // <tr className={`${this.word}`} className={`${this.definition}`}>
-      //   <td>
+      // <form onSubmit={this.handleSubmit} className="my-3">
+      //   <div className="form-row">
+      //     <div className="form-group col-md-8">
       //       <input
       //       type="text"
       //       name="inputWord"
@@ -71,22 +44,49 @@ class Entry extends React.Component {
       //       className="form-control"
       //       id="inputWord"
       //       placeholder="Write the word here..."
-      //   />
-      //   </td>
-      //   <td>
+      //       />
+      //     </div>
+      //     <div className="form-group col-md-8">
       //     <textarea
       //       type="text"
       //       defaultValue={entry.definition}
       //       className="form-control"
       //       id={`entry__definition-${entry.id}`}
       //     />
-      //   </td>
-      //   <button onSubmit={this.handleSubmit}
-      //   className="btn btn-primary"
-      //   >
-      //     Submit
-      //   </button>
-      // </tr>
+      //     </div>
+      //     <div className="form-group col-md-4">
+      //       <button className="btn btn-primary">
+      //         Submit
+      //       </button>
+      //     </div>
+      //   </div>
+      // </form>
+      <tr onSubmit={this.handleSubmit} className={`${this.word}`} className={`${this.definition}`}>
+        <td>
+            <input onSubmit={this.handleSubmit}
+            type="text"
+            name="inputWord"
+            ref={this.wordRef}
+            required
+            className="form-control"
+            id="inputWord"
+            placeholder="Write the word here..."
+        />
+        </td>
+        <td>
+          <textarea
+            type="text"
+            defaultValue={entry.definition}
+            className="form-control"
+            id={`entry__definition-${entry.id}`}
+          />
+        </td>
+        <button
+        className="btn btn-primary"
+        >
+          Submit
+        </button>
+      </tr>
     )
   }
 }

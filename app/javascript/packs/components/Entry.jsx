@@ -81,7 +81,7 @@ class Entry extends React.Component {
             id={`entry__definition-${entry.id}`}
           />
         </td>
-        <button
+        <button onSubmit={this.handleSubmit}
         className="btn btn-primary"
         >
           Submit
